@@ -1,0 +1,11 @@
+steps:
+
+  # Install node packages
+  - name: 'gcr.oi/cloud-builders/npm'
+    args: ['install']
+  # Build productive files
+  - name: 'gcr.oi/cloud-builders/npm'
+    args: ['run','build']
+  # Deploy
+  - name: 'gcr.oi/cloud-builders/gcloud'
+    args: ['app','deploy','--version=prod']
